@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Azavea Pecha Kucha</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <section class="hero is-fullheight is-info is-bold">
+        <div class="hero-body has-text-centered">
+            <div class="container">
+                <h1 class="title">
+                    Azavea Pecha Kucha
+                </h1>
+                <form method="GET" action="present/">
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input is-info is-large" type="text" placeholder="username" name="user" required>
+                            <span class="icon is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input is-info is-large" type="text" placeholder="repository" name="repo" required>
+                            <span class="icon is-left">
+                                <i class="fab fa-github"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <div class="control has-icons-left">
+                            <div class="select is-large">
+                                <select name="delay">
+                                    <option value="10">10 seconds</option>
+                                    <option value="15">15 seconds</option>
+                                    <option value="20" selected>20 seconds</option>
+                                    <option value="25">25 seconds</option>
+                                    <option value="30">30 seconds</option>
+                                </select>
+                            </div>
+                            <div class="icon is-left">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                            <button type="submit" class="button is-info is-inverted is-large is-fullwidth">
+                                Present
+                            </button>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

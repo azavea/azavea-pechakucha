@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Azavea Pecha Kucha</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.min.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+            </div>
+        </div>
+        <script>
+            const usp = new URLSearchParams(window.location.search);
+            const user = usp.get('user');
+            const repo = usp.get('repo');
+
+            if (!(user && repo)) {
+                throw "User or repository unspecified";
+            }
+
+            const slides = document.querySelectorAll('.slides > section');
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].setAttribute(
+                    'data-background-image',
+                    `https://github.com/${user}/${repo}/raw/master/${i+1}.jpg`
+                );
+            }
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+        <script>
+            const delay = usp.get('delay');
+            Reveal.initialize({
+                autoSlide: (delay && delay * 1000) || 5000,
+                autoSlideStoppable: false,
+                slideNumber: true,
+            });
+        </script>
+    </body>
+</html>
