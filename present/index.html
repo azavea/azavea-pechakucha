@@ -7,44 +7,36 @@
     </head>
     <body>
         <div class="reveal">
-            <div class="slides">
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-                <section></section>
-            </div>
+            <div class="slides"></div>
         </div>
         <script>
             const usp = new URLSearchParams(window.location.search);
+            const numslides = usp.get('numslides') || 20;
+            const bgcolor = usp.get('bgcolor') || '#fff';
             const user = usp.get('user');
             const repo = usp.get('repo');
+            const slides = document.querySelector('.reveal > .slides');
 
             if (!(user && repo)) {
                 throw "User or repository unspecified";
             }
 
-            const slides = document.querySelectorAll('.slides > section');
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].setAttribute(
+            for (let i = 0; i < numslides; i++) {
+                const slide = document.createElement('section');
+                slide.setAttribute(
+                    'data-background-size',
+                    'contain'
+                );
+                slide.setAttribute(
+                    'data-background-color',
+                    bgcolor
+                );
+                slide.setAttribute(
                     'data-background-image',
                     `https://github.com/${user}/${repo}/raw/master/${i+1}.jpg`
                 );
+
+                slides.appendChild(slide);
             }
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>

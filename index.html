@@ -17,25 +17,29 @@
                     Azavea Pecha Kucha
                 </h1>
                 <form method="GET" action="present/">
-                    <div class="field">
+                    <div class="field is-grouped">
                         <p class="control has-icons-left">
                             <input class="input is-info is-large" type="text" placeholder="username" name="user" required>
                             <span class="icon is-left">
                                 <i class="fas fa-user"></i>
                             </span>
                         </p>
-                    </div>
-                    <div class="field">
-                        <p class="control has-icons-left">
+                        <p class="control has-icons-left is-expanded">
                             <input class="input is-info is-large" type="text" placeholder="repository" name="repo" required>
                             <span class="icon is-left">
                                 <i class="fab fa-github"></i>
                             </span>
                         </p>
                     </div>
-                    <div class="field">
-                        <div class="control has-icons-left">
-                            <div class="select is-large">
+                    <div class="field is-grouped is-grouped-centered">
+                        <p class="control has-icons-left is-expanded">
+                            <input class="input is-info is-large" type="number" placeholder="number of slides" name="numslides" value="20" required>
+                            <span class="icon is-left">
+                                <i class="fas fa-list-ol"></i>
+                            </span>
+                        </p>
+                        <div class="control has-icons-left is-expanded">
+                            <div class="select is-large is-fullwidth">
                                 <select name="delay">
                                     <option value="10">10 seconds</option>
                                     <option value="15">15 seconds</option>
@@ -46,6 +50,17 @@
                             </div>
                             <div class="icon is-left">
                                 <i class="fas fa-clock"></i>
+                            </div>
+                        </div>
+                        <div class="control has-icons-left is-expanded">
+                            <div class="select is-large is-fullwidth">
+                                <select name="bgcolor">
+                                    <option value="#000">Black</option>
+                                    <option value="#fff" selected>White</option>
+                                </select>
+                            </div>
+                            <div class="icon is-left">
+                                <i class="fas fa-palette"></i>
                             </div>
                         </div>
                     </div>
