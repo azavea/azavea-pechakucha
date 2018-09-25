@@ -4,6 +4,8 @@
 where a speaker does a short presentation to image slides that auto advance
 every few seconds. This keeps talks short, to the point, and interesting!
 
+![image](https://user-images.githubusercontent.com/1430060/46046214-3cd2d680-c0ee-11e8-8287-89b3fc535549.png)
+
 This tool is a configurable presentation viewer for such a presentation. It
 uses [RevealJS](https://revealjs.com/) to load images and auto-advance the
 slides. The images are loaded from a given GitHub user's repository, which is
