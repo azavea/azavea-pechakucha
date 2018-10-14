@@ -48,10 +48,6 @@
                 fill: none;
             }
 
-            #countdowner.animated {
-                animation: countdown 1s linear infinite forwards;
-            }
-
             @keyframes countdown {
                 from {
                     stroke-dashoffset: 0px;
@@ -122,14 +118,26 @@
 
             function initializeCountdown() {
                 countdownNumber.textContent = delay;
-                countdowner.classList.remove('animated');
+
+                // Remove the countdowner animation and restart it.
+                //
+                // If done too quickly (before a frame is rendered) it has
+                // no effect, and the animation doesn't start (since the
+                // animation-iteration-count is 1). To get around this, we
+                // use setTimeout with a timeout a little more than a frame's
+                // render time to ensure it is applied to the DOM.
+                setTimeout(() => {
+                    countdowner.style.animation = ``;
+                    setTimeout(() => {
+                        countdowner.style.animation = `countdown ${delay}s linear 1 forwards`;
+                    }, 15);
+                }, 15);
 
                 if (countdownId) {
                     clearInterval(countdownId);
                 }
 
                 countdownId = setInterval(tick, 1000);
-                countdowner.classList.add('animated');
             }
 
             Reveal.initialize({
